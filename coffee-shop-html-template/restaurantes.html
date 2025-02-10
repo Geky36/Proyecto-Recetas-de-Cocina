@@ -40,8 +40,8 @@
                 <div class="navbar-nav ml-auto p-4">
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link active">Restaurantes</a>
-                    <a href="menu.html" class="nav-item nav-link">Menu</a>
+                    <a href="restaurantes.html" class="nav-item nav-link active">Restaurantes</a>
+                    <a href="recetas.html" class="nav-item nav-link">Recetas</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu text-capitalize">
@@ -179,6 +179,64 @@
     </div>
 
     <script>
+        // Arreglo para almacenar los restaurantes registrados
+        let restaurantes = [];
+
+        // Función para registrar un restaurante
+        document.getElementById('registroRestauranteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Obtener los datos del formulario
+            const nombreRestaurante = document.getElementById('nombreRestaurante').value.trim();
+            const categoria = document.getElementById('categoria').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            
+            // Validar los campos
+            if (nombreRestaurante === "" || categoria === "" || correo === "") {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // Guardar el restaurante
+            restaurantes.push({
+                nombre: nombreRestaurante,
+                categoria: categoria,
+                correo: correo
+            });
+
+            // Limpiar el formulario
+            document.getElementById('registroRestauranteForm').reset();
+            
+            // Llenar el select de restaurantes
+            actualizarSelectRestaurantes();
+            
+            alert("Restaurante registrado exitosamente.");
+        });
+
+        // Función para actualizar el select de restaurantes
+        function actualizarSelectRestaurantes() {
+            const select = document.getElementById('restauranteSelect');
+            select.innerHTML = ""; // Limpiar opciones anteriores
+
+            // Crear la opción por defecto
+            const optionDefault = document.createElement("option");
+            optionDefault.textContent = "Selecciona un restaurante";
+            optionDefault.disabled = true;
+            optionDefault.selected = true;
+            select.appendChild(optionDefault);
+
+            // Llenar el select con los restaurantes registrados
+            restaurantes.forEach(function(restaurante, index) {
+                const option = document.createElement("option");
+                option.value = index; // Usamos el índice para identificar el restaurante
+                option.textContent = restaurante.nombre;
+                select.appendChild(option);
+            });
+        }
+
+        // Llamar a la función inicial para llenar el select cuando se carga la página
+        actualizarSelectRestaurantes();
+
         document.getElementById("registroForm").addEventListener("submit", function(event) {
             event.preventDefault();
             

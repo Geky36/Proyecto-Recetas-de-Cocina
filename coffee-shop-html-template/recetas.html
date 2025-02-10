@@ -40,8 +40,8 @@
                 <div class="navbar-nav ml-auto p-4">
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Restaurantes</a>
-                    <a href="menu.html" class="nav-item nav-link active">Menu</a>
+                    <a href="restaurantes.html" class="nav-item nav-link">Restaurantes</a>
+                    <a href="recetas.html" class="nav-item nav-link active">Recetas</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu text-capitalize">
@@ -60,11 +60,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
-            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Menu</h1>
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Recetas</h1>
             <div class="d-inline-flex mb-lg-5">
-                <p class="m-0 text-white"><a class="text-white" href="">Home</a></p>
-                <p class="m-0 text-white px-2">/</p>
-                <p class="m-0 text-white">Menu</p>
+                <p class="m-0 text-white"><a class="text-white" href="">Registre</a></p>
+                <p class="m-0 text-white px-2">su</p>
+                <p class="m-0 text-white">Receta</p>
             </div>
         </div>
     </div>
@@ -75,79 +75,103 @@
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="section-title">
-                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Menu & Pricing</h4>
-                <h1 class="display-4">Competitive Pricing</h1>
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Formulario</h4>
+                <h1 class="display-4">Registro Restaurante</h1>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1 class="mb-5">Hot Coffee</h1>
-                    <div class="row align-items-center mb-5">
-                        <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-1.jpg" alt="">
-                            <h5 class="menu-price">$5</h5>
-                        </div>
-                        <div class="col-8 col-sm-9">
-                            <h4>Black Coffee</h4>
-                            <p class="m-0">Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center mb-5">
-                        <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-2.jpg" alt="">
-                            <h5 class="menu-price">$7</h5>
-                        </div>
-                        <div class="col-8 col-sm-9">
-                            <h4>Chocolete Coffee</h4>
-                            <p class="m-0">Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center mb-5">
-                        <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-3.jpg" alt="">
-                            <h5 class="menu-price">$9</h5>
-                        </div>
-                        <div class="col-8 col-sm-9">
-                            <h4>Coffee With Milk</h4>
-                            <p class="m-0">Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h1 class="mb-5">Cold Coffee</h1>
-                    <div class="row align-items-center mb-5">
-                        <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-1.jpg" alt="">
-                            <h5 class="menu-price">$5</h5>
-                        </div>
-                        <div class="col-8 col-sm-9">
-                            <h4>Black Coffee</h4>
-                            <p class="m-0">Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center mb-5">
-                        <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-2.jpg" alt="">
-                            <h5 class="menu-price">$7</h5>
-                        </div>
-                        <div class="col-8 col-sm-9">
-                            <h4>Chocolete Coffee</h4>
-                            <p class="m-0">Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center mb-5">
-                        <div class="col-4 col-sm-3">
-                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-3.jpg" alt="">
-                            <h5 class="menu-price">$9</h5>
-                        </div>
-                        <div class="col-8 col-sm-9">
-                            <h4>Coffee With Milk</h4>
-                            <p class="m-0">Sit lorem ipsum et diam elitr est dolor sed duo guberg sea et et lorem dolor</p>
-                        </div>
+        </div>
+    </div>
+
+        <!-- Formulario para registrar receta -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 pb-5">
+                    <div class="contact-form">
+                        <form id="registroRecetaForm" novalidate="novalidate">
+                            <div class="control-group">
+                                <input type="text" class="form-control bg-transparent p-4" id="recetaNombre" name="recetaNombre" 
+                                    placeholder="Nombre de la Receta" required="required" 
+                                    data-validation-required-message="Por favor, ingrese el nombre de la receta" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+        
+                            <div class="control-group">
+                                <select class="form-control bg-transparent p-4 text-muted" id="restauranteSelect" name="restaurante" required="required"
+                                    data-validation-required-message="Por favor, seleccione un restaurante">
+                                    <option value="" disabled selected hidden>Seleccione un restaurante</option>
+                                    <!-- Las opciones de restaurantes se llenarán aquí -->
+                                </select>
+                                <p class="help-block text-danger"></p>
+                            </div>
+        
+                            <!-- Sección para agregar ingredientes -->
+                            <div class="control-group" id="ingredientesContainer">
+                                <label for="ingrediente">Ingredientes:</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control bg-transparent p-4" id="ingrediente" name="ingrediente" 
+                                        placeholder="Ingrese un ingrediente" />
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-primary" id="addIngredienteBtn">Añadir Ingrediente</button>
+                                    </div>
+                                </div>
+                                <p class="help-block text-danger"></p>
+                                <div id="ingredientesList"></div>
+                            </div>
+        
+                            <div>
+                                <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Registrar Receta</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        
+        <script>
+            document.getElementById('addIngredienteBtn').addEventListener('click', function() {
+                var ingrediente = document.getElementById('ingrediente').value;
+                if (ingrediente !== '') {
+                    var ingredientesList = document.getElementById('ingredientesList');
+                    var newIngrediente = document.createElement('div');
+                    newIngrediente.classList.add('ingredient-item');
+                    newIngrediente.innerHTML = `
+                        <span>${ingrediente}</span>
+                        <button type="button" class="btn btn-danger btn-sm ml-2 removeIngredienteBtn">Eliminar</button>
+                    `;
+                    ingredientesList.appendChild(newIngrediente);
+                    document.getElementById('ingrediente').value = '';  // Limpiar el campo
+                }
+            });
+        
+            // Eliminar ingrediente
+            document.getElementById('ingredientesList').addEventListener('click', function(e) {
+                if (e.target && e.target.classList.contains('removeIngredienteBtn')) {
+                    e.target.parentElement.remove();
+                }
+            });
+            
+        // Función para registrar una receta
+        document.getElementById('registroRecetaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Obtener los datos del formulario
+            const recetaNombre = document.getElementById('recetaNombre').value.trim();
+            const restauranteSelect = document.getElementById('restauranteSelect');
+            const restauranteIndex = restauranteSelect.value;
+            
+            // Validar los campos
+            if (recetaNombre === "" || restauranteIndex === "") {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // Obtener el restaurante seleccionado
+            const restaurante = restaurantes[restauranteIndex];
+            
+            // Aquí se puede realizar la lógica para guardar la receta junto con el restaurante seleccionado
+            alert("Receta registrada con éxito para el restaurante: " + restaurante.nombre);
+        });
+        </script>
+
     <!-- Menu End -->
 
 
