@@ -87,6 +87,7 @@
                 <div class="col-md-6 pb-5">
                     <div class="contact-form">
                         <form id="registroRecetaForm" novalidate="novalidate">
+                            <!-- Nombre de la Receta -->
                             <div class="control-group">
                                 <input type="text" class="form-control bg-transparent p-4" id="recetaNombre" name="recetaNombre" 
                                     placeholder="Nombre de la Receta" required="required" 
@@ -94,6 +95,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
         
+                            <!-- Restaurante -->
                             <div class="control-group">
                                 <select class="form-control bg-transparent p-4 text-muted" id="restauranteSelect" name="restaurante" required="required"
                                     data-validation-required-message="Por favor, seleccione un restaurante">
@@ -103,18 +105,63 @@
                                 <p class="help-block text-danger"></p>
                             </div>
         
-                            <!-- Sección para agregar ingredientes -->
-                            <div class="control-group" id="ingredientesContainer">
-                                <label for="ingrediente">Ingredientes:</label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control bg-transparent p-4" id="ingrediente" name="ingrediente" 
-                                        placeholder="Ingrese un ingrediente" />
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-primary" id="addIngredienteBtn">Añadir Ingrediente</button>
-                                    </div>
+                            <!-- Ingredientes -->
+                            <div id="ingredientesContainer">
+                                <div class="control-group">
+                                    <input type="text" class="form-control bg-transparent p-4" id="ingredienteNombre" name="ingredienteNombre[]" 
+                                        placeholder="Nombre del ingrediente" required="required" />
+                                    <p class="help-block text-danger"></p>
                                 </div>
+        
+                                <div class="control-group">
+                                    <input type="text" class="form-control bg-transparent p-4" id="unidadMedida" name="unidadMedida[]" 
+                                        placeholder="Unidad de medida" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+        
+                                <div class="control-group">
+                                    <input type="number" class="form-control bg-transparent p-4" id="cantidad" name="cantidad[]" 
+                                        placeholder="Cantidad" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+        
+                                <button type="button" class="btn btn-primary font-weight-bold py-2 px-4" id="agregarIngrediente">Agregar Ingrediente</button>
+                            </div>
+        
+                            <!-- Utensilios -->
+                            <div id="utensiliosContainer">
+                                <div class="control-group">
+                                    <input type="text" class="form-control bg-transparent p-4" id="utensilio" name="utensilio[]" 
+                                        placeholder="Utensilio necesario" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+        
+                                <button type="button" class="btn btn-primary font-weight-bold py-2 px-4" id="agregarUtensilio">Agregar Utensilio</button>
+                            </div>
+        
+                            <!-- Pasos -->
+                            <div id="pasosContainer">
+                                <div class="control-group">
+                                    <textarea class="form-control bg-transparent p-4" id="paso" name="paso[]" 
+                                        placeholder="Descripción de un paso de la receta" required="required"></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+        
+                                <button type="button" class="btn btn-primary font-weight-bold py-2 px-4" id="agregarPaso">Agregar Paso</button>
+                            </div>
+        
+                            <!-- Tiempo de Cocción -->
+                            <div class="control-group">
+                                <input type="number" class="form-control bg-transparent p-4" id="tiempoCoccion" name="tiempoCoccion" 
+                                    placeholder="Tiempo de Cocción (minutos)" required="required" />
                                 <p class="help-block text-danger"></p>
-                                <div id="ingredientesList"></div>
+                            </div>
+        
+                            <!-- Tiempo de Preparación -->
+                            <div class="control-group">
+                                <input type="number" class="form-control bg-transparent p-4" id="tiempoPreparacion" name="tiempoPreparacion" 
+                                    placeholder="Tiempo de Preparación (minutos)" required="required" />
+                                <p class="help-block text-danger"></p>
                             </div>
         
                             <div>
@@ -124,23 +171,47 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>      
         
         <script>
-            document.getElementById('addIngredienteBtn').addEventListener('click', function() {
-                var ingrediente = document.getElementById('ingrediente').value;
-                if (ingrediente !== '') {
-                    var ingredientesList = document.getElementById('ingredientesList');
-                    var newIngrediente = document.createElement('div');
-                    newIngrediente.classList.add('ingredient-item');
-                    newIngrediente.innerHTML = `
-                        <span>${ingrediente}</span>
-                        <button type="button" class="btn btn-danger btn-sm ml-2 removeIngredienteBtn">Eliminar</button>
-                    `;
-                    ingredientesList.appendChild(newIngrediente);
-                    document.getElementById('ingrediente').value = '';  // Limpiar el campo
-                }
+            document.getElementById("agregarIngrediente").addEventListener("click", function() {
+                const ingredientesContainer = document.getElementById("ingredientesContainer");
+            
+                const ingredienteDiv = document.createElement("div");
+                ingredienteDiv.classList.add("control-group");
+            
+                ingredienteDiv.innerHTML = `
+                    <input type="text" class="form-control bg-transparent p-4" name="ingredienteNombre[]" placeholder="Nombre del ingrediente" required />
+                    <input type="text" class="form-control bg-transparent p-4" name="unidadMedida[]" placeholder="Unidad de medida" required />
+                    <input type="number" class="form-control bg-transparent p-4" name="cantidad[]" placeholder="Cantidad" required />
+                `;
+                ingredientesContainer.appendChild(ingredienteDiv);
             });
+            
+            document.getElementById("agregarUtensilio").addEventListener("click", function() {
+                const utensiliosContainer = document.getElementById("utensiliosContainer");
+            
+                const utensilioDiv = document.createElement("div");
+                utensilioDiv.classList.add("control-group");
+            
+                utensilioDiv.innerHTML = `
+                    <input type="text" class="form-control bg-transparent p-4" name="utensilio[]" placeholder="Utensilio necesario" required />
+                `;
+                utensiliosContainer.appendChild(utensilioDiv);
+            });
+            
+            document.getElementById("agregarPaso").addEventListener("click", function() {
+                const pasosContainer = document.getElementById("pasosContainer");
+            
+                const pasoDiv = document.createElement("div");
+                pasoDiv.classList.add("control-group");
+            
+                pasoDiv.innerHTML = `
+                    <textarea class="form-control bg-transparent p-4" name="paso[]" placeholder="Descripción de un paso de la receta" required></textarea>
+                `;
+                pasosContainer.appendChild(pasoDiv);
+            });
+            
         
             // Eliminar ingrediente
             document.getElementById('ingredientesList').addEventListener('click', function(e) {
@@ -148,7 +219,7 @@
                     e.target.parentElement.remove();
                 }
             });
-            
+
         // Función para registrar una receta
         document.getElementById('registroRecetaForm').addEventListener('submit', function(event) {
             event.preventDefault();
