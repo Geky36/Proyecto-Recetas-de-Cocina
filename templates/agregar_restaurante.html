@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3>Agregar Restaurante</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ url_for('Recetario.agregar_restaurante') }}" method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Horario</label>
+                                <input type="text" name="horario" class="form-control" placeholder="Horario de atencion"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" name="nombre" class="form-control"
+                                    placeholder="Nombre del restaurante" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Correo</label>
+                                <input type="email" name="correo" class="form-control"
+                                    placeholder="correo electronico" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Calle</label>
+                                <input type="text" name="calles" class="form-control"
+                                    placeholder="Calles del restaurante" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ciudad</label>
+                                <input type="text" name="ciudad" class="form-control"
+                                    placeholder="Ciudad del restaurante" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Categoria</label>
+                                <input type="text" name="categoria" class="form-control"
+                                    placeholder="Ciudad del restaurante" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success"> Agregar Restaurante</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="/" class="btn btn-danger"> Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+ {% endblock %}

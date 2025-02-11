@@ -4,7 +4,7 @@
 
 <!-- Contenido Principal -->
 <div class="container mt-5">
-    <h1 class="text-center text-primary">Telefono del Paciente</h1>
+    <h1 class="text-center text-primary">Telefono del Restaurante</h1>
 
     <div class="table-responsive mt-4">
         <table class="table table-bordered table-hover shadow-sm bg-white">
@@ -12,16 +12,13 @@
                 <tr class="text-center">
                     <th>ID</th>
                     <th>Telefono</th>
-                    <th>ID del Paciente</th>
                 </tr>
             </thead>
             <tbody>
-                {% for Paciente in Telefono %}
+                {% for telefon in telefonos %}
                 <tr class="text-center">
-                    <td>{{ Paciente.idTelefono }}</td>
-                    <td>{{ Paciente.numero }}</td>
-                    <td>{{ Paciente.idPaciente }}</td>
-
+                    <td>{{ telefon.id }}</td>
+                    <td>{{ telefon.telefono }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

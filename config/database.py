@@ -1,10 +1,10 @@
 import mysql.connector
 
 db_config = {
-    'user': 'dilan',
-    'password': '123456',
+    'user': 'BaseNOLE',
+    'password': 'proyectofinal',
     'host': 'localhost',
-    'database': 'Hospital',
+    'database': 'RecetarioDigital',
     'raise_on_warnings': True
 }
 

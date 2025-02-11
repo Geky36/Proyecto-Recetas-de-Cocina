@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-primary">Lista de Pacientes</h1>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered table-hover shadow-sm bg-white">
+            <thead class="table-primary">
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>Horario</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Telefonos</th>
+                    <th>Calles</th>
+                    <th>Ciudad</th>
+                    <th>Categoria</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for restaurante in restaurantes %}
+                <tr class="text-center">
+                    <td>{{ restaurante.id }}</td>
+                    <td>{{ restaurante.horario }}</td>
+                    <td>{{ restaurante.nombre }}</td>
+                    <td>{{ restaurante.correo }}</td>
+                    <td>
+                        <a href="{{ url_for('Recetario.mostrar_telefonos', id=restaurante.id) }}" class="btn btn-info">
+                            <i class="fas fa-phone"></i> Ver Teléfonos
+                        </a>                        
+                    </td>
+                    <td>{{ restaurante.direccion_calle }}</td>
+                    <td>{{ restaurante.direccion_ciudad }}</td>
+                    <td>{{ restaurante.categoria }}</td>
+                    <td>
+                        <a href="{{ url_for('Recetario.editar_restaurante', id=restaurante.id) }}"
+                            class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ url_for('Recetario.eliminar_restaurante', id=restaurante.id) }}"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('¿Estás seguro de que deseas eliminar este restaurante?');">
+                            Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

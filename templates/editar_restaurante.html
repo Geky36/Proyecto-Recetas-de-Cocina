@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <title>Editar Restaurante</title>
+
+
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow p-4 w-50">
+            <h1 class="text-center text-primary">Editar Restaurante</h1>
+            <form action="{{ url_for('Recetario.editar_restaurante', id=restaurante.id) }}" method="post">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="horario" id="horario" value="{{restaurante.horario}}" required>
+                    <label for="horario"> Horario</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ restaurante.nombre }}"
+                        required>
+                    <label for="nombre">Nombre</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="correo" name="correo" value="{{ restaurante.correo }}"
+                        required>
+                    <label for="correo">Correo</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="calles" name="calles" value="{{ restaurante.direccion_calle }}"
+                        required>
+                    <label for="calles">Calles</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="ciudad" name="ciudad"
+                        value="{{ restaurante.direccion_ciudad }}" required>
+                    <label for="ciudad">Ciudad</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="categoria" name="categoria"
+                        value="{{ restaurante.categoria }}" required>
+                    <label for="categoria">Categoria</label>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-lg w-100">Actualizar</button>
+                    <a href="{{ url_for('Recetario.mostrar_restaurantes') }}" class="btn btn-info btn-lg w-100 mt-2">Volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

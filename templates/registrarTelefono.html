@@ -15,16 +15,16 @@
                     <h3>Agregar Telefono del Paciente</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url_for('pacientes.agregar_telefono') }}" method="post">
+                    <form action="{{ url_for('Recetario.agregar_telefono') }}" method="post">
                         <div class="mb-3">
                             <label class="form-label">Telefono</label>
-                            <input type="text" name="numero" class="form-control" placeholder="Ingrese el nombre"
+                            <input type="text" name="telefono" class="form-control" placeholder="Ingrese el telefono"
                                 required>
                         </div>                       
                         <div class="mb-3">
-                            <label class="form-label">Id del Paciente</label>
-                            <input type="number" name="idPaciente" class="form-control"
-                                placeholder="Ingrese el id" required>
+                            <label class="form-label">Id del Restaurante</label>
+                            <input type="number" name="id_restaurante" class="form-control"
+                                placeholder="Ingrese el id  del restaurante" required>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-success"> Agregar Telefono</button>
