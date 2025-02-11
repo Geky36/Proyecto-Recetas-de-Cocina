@@ -110,34 +110,3 @@ def agregar_telefono():
         conn.close()
         return redirect(url_for('Recetario.mostrar_restaurantes'))
     return render_template('registrarTelefono.html')
-
-@router.route('/historialMedico')
-def mostrar_historial():
-    base = get_db_connection()
-    cursor = base.cursor(dictionary=True)
-    cursor.execute('SELECT * FROM HistorialMedico')
-    data = cursor.fetchall()
-    base.close()
-    return render_template('listaHistorial.html',Historial = data)
-
-
-@router.route('/agregarHitorial', methods=['GET', 'POST'])
-def agregar_historial():
-    if request.method == 'POST':
-        fecha = request.form['fecha']
-        diagnostico = request.form['diagnostico']
-        observaciones = request.form['observaciones']
-        idPaciente = int (request.form['idPaciente'])
-
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute('''
-            INSERT INTO HistorialMedico (fecha, diagnostico, observaciones, idPaciente) 
-            VALUES (%s, %s, %s, %s)
-        ''', (fecha, diagnostico, observaciones, idPaciente))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        return redirect(url_for('pacientes.index'))
-    
-    return render_template('agregarHistorial.html')
